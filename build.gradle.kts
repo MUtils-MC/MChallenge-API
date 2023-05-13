@@ -1,27 +1,15 @@
 plugins {
-    kotlin("jvm") version "1.8.20"
-    kotlin("plugin.serialization") version "1.8.20"
+    `kotlin-script`
     `maven-publish`
+    `adventure-script`
     signing
 }
 
 group = "de.miraculixx.challenges.api"
 setProperty("module_name", "challenges")
 
-val adventureVersion = "4.13.1"
 val githubRepo = "MiraculixxT/MUtils"
 val isSnapshot = false
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    implementation("net.kyori:adventure-api:$adventureVersion")
-    implementation("net.kyori:adventure-text-minimessage:$adventureVersion")
-    implementation("net.kyori:adventure-text-serializer-plain:$adventureVersion")
-    implementation("net.kyori:adventure-text-serializer-gson:$adventureVersion")
-}
 
 java {
     withSourcesJar()
