@@ -6,7 +6,6 @@ import de.miraculixx.challenge.api.modules.mods.noSameItem.NoSameItemEnum
 import de.miraculixx.challenge.api.settings.*
 import de.miraculixx.challenge.api.utils.CustomHeads
 import de.miraculixx.challenge.api.utils.Icon
-import net.kyori.adventure.text.Component
 
 /**
  * @param filter List of filter categories the challenges owns
@@ -59,6 +58,7 @@ enum class Challenges(val filter: Set<ChallengeTags>, val icon: Icon, val status
     DAMAGER(setOf(ChallengeTags.HARD), Icon("DIAMOND_SWORD")),
     RIVALS_COLLECT(setOf(ChallengeTags.FUN, ChallengeTags.FORCE, ChallengeTags.MULTIPLAYER), Icon("CHEST_MINECART")),
     ROCKET(setOf(ChallengeTags.MEDIUM), Icon("FIREWORK_ROCKET")),
+    BLOCK_WORLD(setOf(ChallengeTags.FUN), Icon("DIAMOND_BLOCK"))
     ;
 
 
@@ -253,6 +253,8 @@ enum class Challenges(val filter: Set<ChallengeTags>, val icon: Icon, val status
                 "cooldown" to ChallengeIntSetting("HOPPER", 180, "s", max = 600, min = 30, step = 10),
                 "bufferTime" to ChallengeIntSetting("NETHER_STAR", 10, "s", max = 120, min = 0, step = 5)
             )
+
+            BLOCK_WORLD -> mapOf()
         }
     }
 }
