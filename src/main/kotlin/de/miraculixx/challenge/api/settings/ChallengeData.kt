@@ -1,18 +1,8 @@
 package de.miraculixx.challenge.api.settings
 
-import de.miraculixx.challenge.api.modules.challenges.Challenges
 import de.miraculixx.challenge.api.utils.IconNaming
 import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
-
-/**
- * @return All setting data for a default challenge
- */
-fun MutableMap<Challenges, ChallengeData>.getSetting(challenge: Challenges): ChallengeData {
-    return getOrPut(challenge) {
-        ChallengeData(challenge.getDefaultSettings(), emptyMap(), false)
-    }
-}
 
 /**
  * Represent all challenge data. Can be serialized with the Kotlin Serializer to save and load easily.

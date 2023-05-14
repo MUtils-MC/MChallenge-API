@@ -1,15 +1,30 @@
 plugins {
-    `kotlin-script`
+//    kotlin("jvm") version "1.8.20"
+//    kotlin("plugin.serialization") version "1.8.20"
+    kotlin("jvm")
+    kotlin("plugin.serialization")
     `maven-publish`
-    `adventure-script`
     signing
 }
 
 group = "de.miraculixx.challenges.api"
 setProperty("module_name", "challenges")
 
-val githubRepo = "MiraculixxT/MUtils"
+val githubRepo = "MUtils-MC/MChallenge-API"
 val isSnapshot = false
+
+repositories {
+    mavenCentral()
+}
+
+val adventureVersion = "4.13.1"
+dependencies {
+    compileOnly("net.kyori:adventure-api:$adventureVersion")
+    compileOnly("net.kyori:adventure-text-minimessage:$adventureVersion")
+    compileOnly("net.kyori:adventure-text-serializer-plain:$adventureVersion")
+    compileOnly("net.kyori:adventure-text-serializer-gson:$adventureVersion")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
+}
 
 java {
     withSourcesJar()
@@ -20,6 +35,13 @@ tasks {
     register("release") {
         group = "publishing"
         dependsOn("publish")
+    }
+    compileJava {
+        options.encoding = "UTF-8"
+        options.release.set(17)
+    }
+    compileKotlin {
+        kotlinOptions.jvmTarget = "17"
     }
 }
 
@@ -39,7 +61,7 @@ publishing {
         create<MavenPublication>("maven") {
             groupId = "de.miraculixx"
             artifactId = "challenge-api"
-            version = "1.2.1"
+            version = "1.3.0"
 
             from(components["java"])
 
