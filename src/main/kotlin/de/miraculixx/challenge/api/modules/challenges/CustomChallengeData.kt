@@ -19,5 +19,5 @@ data class CustomChallengeData(
     val data: ChallengeData,
     val icon: Icon,
     val tags: Set<ChallengeTags>,
-    val owner: String
+    val owner: String,
 )

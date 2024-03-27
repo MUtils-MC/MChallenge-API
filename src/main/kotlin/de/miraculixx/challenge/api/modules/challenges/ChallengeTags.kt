@@ -10,6 +10,17 @@ enum class ChallengeTags {
     RANDOMIZER,
     FORCE,
     MULTIPLAYER,
+
+    // HARD FILTER
+    ADDON,
+    PREMIUM,
     FREE,
-    ADDON
+    BETA,
+
+    ;
+
+    companion object {
+        private val rotationFilter = arrayOf(FUN, MEDIUM, HARD, RANDOMIZER, FORCE, MULTIPLAYER)
+        fun getRotationFilter() = rotationFilter
+    }
 }
