@@ -52,7 +52,7 @@ publishing {
         create<MavenPublication>("maven") {
             groupId = "de.miraculixx"
             artifactId = "challenge-api"
-            version = "1.4.0"
+            version = "1.5.0"
 
             from(components["java"])
 
